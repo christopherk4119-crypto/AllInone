@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-h: 72px;
+}
+@media (min-width: 1024px) {
+  :root {
+    --header-h: 116px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 8px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-bone font-sans text-charcoal antialiased;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+/* ---------- Textures ---------- */
+/* Warm charcoal with a subtle concrete grain (inline SVG noise, no extra request) */
+.bg-concrete {
+  background-color: #1b1d1f;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 .95 0 0 0 0 .9 0 0 0 .05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse at 20% 0%, rgba(217, 130, 43, 0.07), transparent 55%),
+    linear-gradient(180deg, #1f2124 0%, #1b1d1f 100%);
+}
+
+/* ---------- Components ---------- */
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8;
+  }
+
+  /* Buttons: copper bg + charcoal text (white on #D9822B fails WCAG AA).
+     Labels are bold 20px, which counts as "large text", so the darker
+     hover copper (#B86A1E) still meets AA with charcoal text. */
+  .btn {
+    @apply inline-flex min-h-[52px] items-center justify-center gap-2 rounded-lg px-6 py-3 font-display text-xl font-bold uppercase tracking-wide transition duration-200 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-offset-2;
+  }
+  .btn-copper {
+    @apply btn bg-copper text-charcoal hover:bg-copper-dark hover:shadow-glow focus-visible:ring-copper/60 focus-visible:ring-offset-charcoal;
+  }
+  .btn-outline-light {
+    @apply btn border-2 border-white/90 text-white hover:border-copper hover:text-white hover:shadow-glow focus-visible:ring-white/60 focus-visible:ring-offset-charcoal;
+  }
+  .btn-outline-dark {
+    @apply btn border-2 border-slate text-charcoal hover:border-copper-ink hover:bg-white hover:shadow-glow focus-visible:ring-slate/50 focus-visible:ring-offset-bone;
+  }
+
+  .eyebrow {
+    @apply font-display text-base font-semibold uppercase tracking-[0.18em];
+  }
+  .h2 {
+    @apply font-display text-[2.5rem] font-bold uppercase leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.5rem];
+  }
+  .lead {
+    @apply text-lg leading-relaxed;
+  }
+
+  .field-label {
+    @apply mb-1.5 block text-[0.95rem] font-semibold text-charcoal;
+  }
+  .field {
+    @apply block min-h-[52px] w-full rounded-lg border-2 border-sand bg-white px-4 py-3 text-base text-charcoal shadow-sm transition placeholder:text-slate/70 focus:border-copper focus:outline-none focus:ring-4 focus:ring-copper/20;
+  }
+  .field[aria-invalid="true"] {
+    @apply border-red-700 focus:ring-red-700/20;
+  }
+}
+
+/* ---------- Tape-measure divider ---------- */
+.tape {
+  --tape-color: #d9822b;
+  position: relative;
+  height: 14px;
+  width: 100%;
+  max-width: 260px;
+  transform-origin: left center;
+  background-image:
+    linear-gradient(var(--tape-color), var(--tape-color)),
+    repeating-linear-gradient(90deg, var(--tape-color) 0 2px, transparent 2px 40px),
+    repeating-linear-gradient(90deg, var(--tape-color) 0 1px, transparent 1px 20px),
+    repeating-linear-gradient(90deg, var(--tape-color) 0 1px, transparent 1px 5px);
+  background-size:
+    100% 2px,
+    100% 14px,
+    100% 9px,
+    100% 5px;
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+  background-repeat: no-repeat;
+}
+.tape--slate {
+  --tape-color: #4a5560;
+}
+.tape--wide {
+  max-width: 100%;
+}
+.tape--center {
+  margin-left: auto;
+  margin-right: auto;
+  transform-origin: center;
+}
+
+/* ---------- Scroll reveal (progressive enhancement) ----------
+   Content is visible by default. Only when JS has run (html.js) are
+   elements hidden until they enter the viewport. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+.js .tape[data-reveal] {
+  opacity: 1;
+  transform: scaleX(0);
+  transition: transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.js .tape[data-reveal].is-in {
+  transform: scaleX(1);
+}
+
+/* Hide scrollbars on horizontal filter rows but keep them scrollable */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+  .js [data-reveal],
+  .js .tape[data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
