@@ -9,6 +9,7 @@ const config: Config = {
         bone: "#F6F2EC",
         sand: "#EDE6DC",
         warmgrey: "#C9C3BA",
+        wood: "#C9A46E",
         slate: { DEFAULT: "#4A5560", light: "#6B7783" },
         copper: {
           DEFAULT: "#D9822B",

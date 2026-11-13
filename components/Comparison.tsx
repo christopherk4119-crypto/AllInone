@@ -7,17 +7,17 @@ const ours = ["One schedule", "One crew accountable for the result", "Work flows
 
 export default function Comparison() {
   return (
-    <section aria-labelledby="compare-title" className="bg-bone py-20 lg:py-28">
+    <section aria-labelledby="compare-title" className="bg-concrete py-20 lg:py-28">
       <div className="container-site">
-        <SectionHeading id="compare-title" center eyebrow="One crew vs. five trades" title="Why One Contractor Beats Five" />
+        <SectionHeading id="compare-title" dark center title="Why one contractor beats five" />
 
         <div className="mx-auto mt-12 grid max-w-5xl gap-6 md:grid-cols-2">
-          <div data-reveal className="rounded-xl border-2 border-sand bg-sand/60 p-8">
-            <h3 className="font-display text-2xl font-bold uppercase tracking-wider text-slate">The usual way</h3>
+          <div data-reveal className="bg-raw-concrete rounded-xl p-8">
+            <h3 className="font-display text-3xl font-bold tracking-tight text-white">The usual way</h3>
             <ul className="mt-6 space-y-4">
               {usual.map((t) => (
-                <li key={t} className="flex items-start gap-3 text-lg text-slate">
-                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-slate/15 text-slate">
+                <li key={t} className="flex items-start gap-3 text-lg text-[#F1ECE4]">
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/15 text-white">
                     <XIcon className="h-4 w-4" strokeWidth={2.6} />
                     <span className="sr-only">Downside:</span>
                   </span>
@@ -30,12 +30,12 @@ export default function Comparison() {
           <div
             data-reveal
             style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
-            className="bg-concrete rounded-xl border-2 border-copper p-8 shadow-soft"
+            className="rounded-xl border-[3px] border-copper bg-bone p-8"
           >
-            <h3 className="font-display text-2xl font-bold uppercase tracking-wider text-copper">The All In One way</h3>
+            <h3 className="font-display text-3xl font-bold tracking-tight text-charcoal">The All In One way</h3>
             <ul className="mt-6 space-y-4">
               {ours.map((t) => (
-                <li key={t} className="flex items-start gap-3 text-lg text-white">
+                <li key={t} className="flex items-start gap-3 text-lg text-charcoal">
                   <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-copper text-charcoal">
                     <CheckIcon className="h-4 w-4" strokeWidth={3} />
                     <span className="sr-only">Benefit:</span>

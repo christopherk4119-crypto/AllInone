@@ -114,8 +114,7 @@ export default function ContactForm() {
         <SectionHeading
           id="contact-title"
           dark
-          eyebrow="Free estimate"
-          title="Get Your Free Estimate"
+          title="Get your free estimate"
           intro={<p>Tell us about your project. We&rsquo;ll get back to you to talk it through.</p>}
         />
 
@@ -127,7 +126,7 @@ export default function ContactForm() {
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-copper text-charcoal">
                   <CheckIcon className="h-8 w-8" strokeWidth={3} />
                 </span>
-                <p className="font-display text-3xl font-bold uppercase text-charcoal">Request sent</p>
+                <p className="font-display text-4xl font-bold tracking-tight text-charcoal">Request sent</p>
                 <p className="text-lg text-slate">Thanks! We&rsquo;ll be in touch shortly to talk about your project.</p>
                 <button type="button" onClick={() => setStatus("idle")} className="btn-outline-dark mt-2">
                   Send another request
@@ -300,7 +299,7 @@ export default function ContactForm() {
           {/* Direct contact */}
           <aside aria-label="Contact details" className="flex flex-col gap-6 text-white">
             <div className="rounded-2xl border-2 border-copper p-7">
-              <p className="eyebrow text-copper">Rather talk?</p>
+              <p className="font-semibold text-copper">Rather talk?</p>
               <a
                 href={site.phone.href}
                 className="mt-2 flex items-center gap-3 font-display text-4xl font-bold tracking-wide text-white hover:text-copper sm:text-5xl"

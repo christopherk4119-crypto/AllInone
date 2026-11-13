@@ -87,9 +87,9 @@ export default function Gallery() {
   const current = openIdx !== null ? visible[openIdx] : null;
 
   return (
-    <section id="projects" aria-labelledby="projects-title" className="bg-concrete py-20 lg:py-28">
+    <section id="projects" aria-labelledby="projects-title" className="bg-bone py-20 lg:py-28">
       <div className="container-site">
-        <SectionHeading id="projects-title" dark eyebrow="Projects" title="Recent Work" />
+        <SectionHeading id="projects-title" title="Recent work" />
 
         {/* Filters: horizontal scroll on mobile */}
         <div className="-mx-5 mt-10 overflow-x-auto px-5 sm:mx-0 sm:px-0 no-scrollbar">
@@ -100,8 +100,8 @@ export default function Gallery() {
                 type="button"
                 aria-pressed={filter === f}
                 onClick={() => setFilter(f)}
-                className={`min-h-[44px] whitespace-nowrap rounded-full border-2 px-5 font-display text-lg font-semibold uppercase tracking-wider transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal ${
-                  filter === f ? "border-copper bg-copper text-charcoal" : "border-white/20 text-warmgrey hover:border-copper hover:text-white"
+                className={`min-h-[44px] whitespace-nowrap rounded-full border-2 px-5 font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-copper focus-visible:ring-offset-2 focus-visible:ring-offset-bone ${
+                  filter === f ? "border-charcoal bg-charcoal text-white" : "border-slate/30 text-slate hover:border-charcoal hover:text-charcoal"
                 }`}
               >
                 {f}
@@ -130,7 +130,7 @@ export default function Gallery() {
                   className="aspect-[4/3] w-full object-cover transition duration-500 group-hover:scale-105"
                 />
                 <span className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent p-3 opacity-100 transition duration-300 sm:p-4 lg:opacity-0 lg:group-hover:opacity-100 lg:group-focus-visible:opacity-100">
-                  <span className="font-display text-sm font-bold uppercase tracking-wider text-white sm:text-lg">
+                  <span className="font-semibold text-white sm:text-lg">
                     <span className="mb-1 block h-[3px] w-8 bg-copper" aria-hidden="true" />
                     {item.label}
                   </span>
@@ -141,11 +141,11 @@ export default function Gallery() {
         </ul>
 
         {site.photosAreStock && (
-          <p className="mt-4 text-sm text-warmgrey/80">Representative photos. Real project photos coming soon.</p>
+          <p className="mt-4 text-sm text-slate">Representative photos. Real project photos coming soon.</p>
         )}
 
         {/* Featured project — from the company's own Facebook post. Image is a stock placeholder. */}
-        <article className="mt-14 grid overflow-hidden rounded-xl border-2 border-copper bg-charcoal-800 shadow-soft md:grid-cols-2" data-reveal>
+        <article className="mt-14 grid overflow-hidden rounded-xl bg-charcoal md:grid-cols-2" data-reveal>
           <div className="relative min-h-[260px]">
             {/* STOCK PLACEHOLDER — replace with the real staircase photo from the client's Facebook post */}
             <Image
@@ -158,8 +158,8 @@ export default function Gallery() {
             />
           </div>
           <div className="flex flex-col justify-center p-8 lg:p-10">
-            <p className="eyebrow text-copper">Featured project</p>
-            <h3 className="mt-2 font-display text-3xl font-bold uppercase leading-tight text-white lg:text-4xl">Custom Staircase</h3>
+            <p className="text-sm font-semibold text-copper">Featured project</p>
+            <h3 className="mt-2 font-display text-4xl font-bold leading-none tracking-tight text-white lg:text-5xl">Custom staircase</h3>
             <p className="mt-4 text-lg text-warmgrey">
               Wood treads, metal spindles, 4x8 feature panels and red accent lighting.
             </p>
@@ -170,7 +170,7 @@ export default function Gallery() {
         </article>
 
         <div className="mt-12 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
-          <p className="font-display text-2xl font-semibold uppercase tracking-wide text-white">Like what you see?</p>
+          <p className="font-display text-3xl font-bold tracking-tight text-charcoal">Like what you see?</p>
           <a href="#contact" className="btn-copper">
             {site.estimateLabel}
           </a>
@@ -196,7 +196,7 @@ export default function Gallery() {
               sizes="(min-width: 1024px) 1024px, 100vw"
               className="max-h-[78vh] w-full rounded-lg object-contain"
             />
-            <figcaption className="mt-3 text-center font-display text-xl font-semibold uppercase tracking-wider text-white">
+            <figcaption className="mt-3 text-center font-semibold text-white">
               {current.label}
               <span className="ml-3 text-base font-normal normal-case tracking-normal text-warmgrey">
                 {openIdx! + 1} / {visible.length}

@@ -21,7 +21,7 @@ export default function Testimonials() {
   return (
     <section aria-labelledby="reviews-title" className="bg-concrete py-20 lg:py-28">
       <div className="container-site">
-        <SectionHeading id="reviews-title" dark eyebrow="Reviews" title="What Our Customers Say" />
+        <SectionHeading id="reviews-title" dark title="What our customers say" />
 
         <ul className="mt-12 grid gap-5 md:grid-cols-3">
           {cards.map((r, i) => (
@@ -30,7 +30,7 @@ export default function Testimonials() {
               <blockquote className={`mt-4 flex-1 text-lg ${reviews.length ? "text-white" : "italic text-warmgrey"}`}>
                 <p>{r.quote}</p>
               </blockquote>
-              <p className="mt-6 min-h-[1.5rem] font-display text-lg font-semibold uppercase tracking-wider text-white">
+              <p className="mt-6 min-h-[1.5rem] font-semibold text-white">
                 {r.name}
                 {r.location ? <span className="ml-2 font-normal normal-case tracking-normal text-warmgrey">{r.location}</span> : null}
               </p>

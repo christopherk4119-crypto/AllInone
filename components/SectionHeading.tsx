@@ -1,7 +1,11 @@
 import TapeDivider from "./TapeDivider";
 
+/**
+ * Section headline + tape-measure rule. Deliberately no "eyebrow" label:
+ * the same label/headline/intro stack on every section is a template tell.
+ * (`eyebrow` is still accepted so callers don't break; it's not rendered.)
+ */
 export default function SectionHeading({
-  eyebrow,
   title,
   intro,
   dark = false,
@@ -17,11 +21,6 @@ export default function SectionHeading({
 }) {
   return (
     <div className={`max-w-3xl ${center ? "mx-auto text-center" : ""}`}>
-      {eyebrow && (
-        <p data-reveal className={`eyebrow mb-3 ${dark ? "text-copper" : "text-copper-ink"}`}>
-          {eyebrow}
-        </p>
-      )}
       <h2 id={id} data-reveal className={`h2 ${dark ? "text-white" : "text-charcoal"}`}>
         {title}
       </h2>

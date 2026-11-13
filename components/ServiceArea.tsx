@@ -76,14 +76,13 @@ export default function ServiceArea() {
         <div>
           <SectionHeading
             id="area-title"
-            eyebrow="Service Area"
-            title="Serving Airdrie, Calgary & Surrounding Areas"
+            title="Serving Airdrie, Calgary & surrounding areas"
             intro={<p>Airdrie is home base. We also work across Calgary and the towns around it.</p>}
           />
 
           <div data-reveal className="mt-8">
-            <p className="inline-flex items-center gap-2 rounded-full bg-copper px-5 py-2.5 font-display text-xl font-bold uppercase tracking-wider text-charcoal">
-              <PinIcon className="h-5 w-5" /> {site.homeBase} <span className="font-semibold normal-case tracking-normal">· home base</span>
+            <p className="inline-flex items-center gap-2 rounded-full bg-copper px-5 py-2.5 text-lg font-semibold text-charcoal">
+              <PinIcon className="h-5 w-5" /> {site.homeBase} <span className="font-normal">· home base</span>
             </p>
             <ul className="mt-4 flex flex-wrap gap-2.5" aria-label="Other areas served">
               {site.serviceAreas.map((a) => (

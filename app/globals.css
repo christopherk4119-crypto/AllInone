@@ -33,6 +33,16 @@ body {
     linear-gradient(180deg, #1f2124 0%, #1b1d1f 100%);
 }
 
+/* Bare concrete (hero "before" panel) — speckled, no gradient */
+.bg-raw-concrete {
+  background-color: #5e5b57;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1.4px),
+    radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1.6px);
+  background-size: 7px 7px, 11px 11px;
+  background-position: 0 0, 3px 5px;
+}
+
 /* ---------- Components ---------- */
 @layer components {
   .container-site {
@@ -59,7 +69,8 @@ body {
     @apply font-display text-base font-semibold uppercase tracking-[0.18em];
   }
   .h2 {
-    @apply font-display text-[2.5rem] font-bold uppercase leading-[1.02] tracking-tight sm:text-5xl lg:text-[3.5rem];
+    @apply font-display text-[2.6rem] font-bold leading-[1] tracking-tight sm:text-5xl lg:text-[3.75rem];
+    text-wrap: balance;
   }
   .lead {
     @apply text-lg leading-relaxed;

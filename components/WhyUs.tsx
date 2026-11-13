@@ -28,20 +28,20 @@ const blocks = [
 
 export default function WhyUs() {
   return (
-    <section aria-labelledby="why-title" className="bg-bone py-20 lg:py-28">
+    <section aria-labelledby="why-title" className="bg-white py-20 lg:py-28">
       <div className="container-site">
-        <SectionHeading id="why-title" eyebrow="Why All In One" title="Why Airdrie Homeowners Call All In One" />
+        <SectionHeading id="why-title" title="Why Airdrie homeowners call All In One" />
 
-        <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {blocks.map((b, i) => (
             <li
               key={b.title}
               data-reveal
               style={{ "--reveal-delay": `${i * 90}ms` } as React.CSSProperties}
-              className="rounded-xl border-2 border-sand bg-white p-7 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-copper"
+              className="border-t-[6px] border-wood pt-6"
             >
-              <span className="flex h-14 w-14 items-center justify-center rounded-xl bg-slate text-white">{b.icon}</span>
-              <h3 className="mt-5 font-display text-2xl font-bold uppercase leading-tight tracking-wide text-charcoal">{b.title}</h3>
+              <span className="text-copper-ink">{b.icon}</span>
+              <h3 className="mt-5 font-display text-[1.75rem] font-bold leading-[1.05] tracking-tight text-charcoal">{b.title}</h3>
               <p className="mt-2 text-slate">{b.text}</p>
             </li>
           ))}

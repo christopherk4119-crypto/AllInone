@@ -9,9 +9,9 @@ export default function OneCrewStrip() {
       className="group block bg-copper text-charcoal transition hover:bg-copper-dark focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-charcoal"
     >
       <div className="container-site flex flex-col items-center gap-3 py-6 text-center md:flex-row md:justify-between md:text-left">
-        <p className="font-display text-2xl font-bold uppercase leading-tight tracking-wide md:text-[1.75rem]">
+        <p className="font-display text-[1.75rem] font-bold leading-tight tracking-tight md:text-[2rem]">
           Stop juggling five trades.{" "}
-          <span className="font-semibold normal-case tracking-normal">
+          <span className="font-semibold">
             One call handles framing, drywall, paint, flooring and more.
           </span>
         </p>
